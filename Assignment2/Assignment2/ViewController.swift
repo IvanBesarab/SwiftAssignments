@@ -35,5 +35,10 @@ class ViewController: RootViewController {
         fatalError()
     }
 
+	//    Задача 5 Развернуть число
+	func mirror(number: Int) {
+		fatalError()
+	}
+
 }
 

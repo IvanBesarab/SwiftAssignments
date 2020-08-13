@@ -166,4 +166,28 @@ number 666 is NOT perfect
         XCTAssertEqual(testInput3, Logger.shared.logText)
     }
 
+	//    Задача 5 Развернуть число
+		func test_5() {
+			Logger.shared.clean()
+			let testInput1 = """
+Mirrored number is \(91)
+"""
+			vc.mirror(number: 19)
+			XCTAssertEqual(testInput1, Logger.shared.logText)
+
+			Logger.shared.clean()
+			let testInput2 = """
+Mirrored number is \(54)
+"""
+			vc.mirror(number: 45)
+			XCTAssertEqual(testInput2, Logger.shared.logText)
+
+			Logger.shared.clean()
+			let testInput3 = """
+Mirrored number is \(589)
+"""
+			vc.mirror(number: 985)
+			XCTAssertEqual(testInput3, Logger.shared.logText)
+		}
+
 }
