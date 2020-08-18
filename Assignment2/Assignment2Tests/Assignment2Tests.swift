@@ -148,46 +148,22 @@ number 124 has 5 divisors
         let testInput1 = """
 number 28 is perfect
 """
-        vc.isNumberPerfect(28)
+        vc.isNumberPerfect(number : 28)
         XCTAssertEqual(testInput1, Logger.shared.logText)
 
         Logger.shared.clean()
         let testInput2 = """
 number 6 is perfect
 """
-        vc.isNumberPerfect(6)
+        vc.isNumberPerfect(number : 6)
         XCTAssertEqual(testInput2, Logger.shared.logText)
 
         Logger.shared.clean()
         let testInput3 = """
 number 666 is NOT perfect
 """
-        vc.isNumberPerfect(666)
+        vc.isNumberPerfect(number : 666)
         XCTAssertEqual(testInput3, Logger.shared.logText)
     }
-
-	//    Задача 5 Развернуть число
-		func test_5() {
-			Logger.shared.clean()
-			let testInput1 = """
-Mirrored number is \(91)
-"""
-			vc.mirror(number: 19)
-			XCTAssertEqual(testInput1, Logger.shared.logText)
-
-			Logger.shared.clean()
-			let testInput2 = """
-Mirrored number is \(54)
-"""
-			vc.mirror(number: 45)
-			XCTAssertEqual(testInput2, Logger.shared.logText)
-
-			Logger.shared.clean()
-			let testInput3 = """
-Mirrored number is \(589)
-"""
-			vc.mirror(number: 985)
-			XCTAssertEqual(testInput3, Logger.shared.logText)
-		}
 
 }
