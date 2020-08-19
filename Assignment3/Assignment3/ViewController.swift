@@ -13,7 +13,9 @@ class ViewController: UIViewController {
     //    Задача 1. Создать строку с своим именем, вывести количество символов содержащихся в ней.
 
     func countStringCharacters(name: String) -> Int {
-        fatalError()
+        print("Меня зовут \(name)")
+        return name.count
+        
     }
 
     //    Задача 2. Создать строку с своим отчеством проверить его на окончание “ич/на”
@@ -31,7 +33,14 @@ class ViewController: UIViewController {
     //    Задача 4. Вывести строку зеркально Ось → ьсО не используя reverse
 
     func mirrorString(input: String) -> String {
-        fatalError()
+        print(input)
+        var word = input
+        var mirrorWord = String()
+        for _ in 0..<word.count {
+            var endLetter = word.remove(at: word.index(before: word.endIndex))
+            mirrorWord += String(endLetter)
+        }
+        return mirrorWord
     }
 
     //    Задача 5. Добавить запятые в строку как их расставляет калькулятор
