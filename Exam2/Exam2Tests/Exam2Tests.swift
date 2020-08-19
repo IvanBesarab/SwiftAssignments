@@ -92,7 +92,7 @@ Hello
         XCTAssertEqual(testInput1, Logger.shared.logText)
     }
 
-    //    6. Написать метод который будет показывать число Фибоначчи например fib(num:6) должно вернуть число 8 (1 аргумент + return)
+//        6. Написать метод который будет показывать число Фибоначчи например fib(num:6) должно вернуть число 8 (1 аргумент + return)
 
     func test_task6() {
         Logger.shared.clean()
