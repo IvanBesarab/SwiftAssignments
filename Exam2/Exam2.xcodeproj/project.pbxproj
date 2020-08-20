@@ -39,7 +39,7 @@
 		A5FE0B2C24EAE9140039D2A0 /* Exam2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Exam2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5FE0B3024EAE9140039D2A0 /* Exam2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exam2Tests.swift; sourceTree = "<group>"; };
 		A5FE0B3224EAE9140039D2A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A5FE0B3B24EAE9450039D2A0 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		A5FE0B3B24EAE9450039D2A0 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootViewController.swift; path = ../../Assignment2/Assignment2/RootViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
