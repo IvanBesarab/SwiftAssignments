@@ -13,13 +13,21 @@ class ViewController: UIViewController {
     //    Задача 1. Создать строку с своим именем, вывести количество символов содержащихся в ней.
 
     func countStringCharacters(name: String) -> Int {
-        fatalError()
+        return name.count
     }
 
     //    Задача 2. Создать строку с своим отчеством проверить его на окончание “ич/на”
 
     func checkPatronomic(name: String) -> Bool {
-        fatalError()
+            if name.hasSuffix("ich") {
+            return true
+        }
+            if name.hasSuffix("vna") {
+                return true
+            }
+            else {
+                return false
+            }
     }
 
     //    Задача 3. Cоздать строку, где слитно написано Ваши ИмяФамилия “IvanVasilevich"
@@ -31,8 +39,12 @@ class ViewController: UIViewController {
     //    Задача 4. Вывести строку зеркально Ось → ьсО не используя reverse
 
     func mirrorString(input: String) -> String {
-        fatalError()
-    }
+        var str = ""
+         for character in input {
+            str = "\(character)" + str
+         }
+         return str
+        }
 
     //    Задача 5. Добавить запятые в строку как их расставляет калькулятор
 
