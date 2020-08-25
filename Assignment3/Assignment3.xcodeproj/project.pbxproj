@@ -14,6 +14,7 @@
 		4C23BCCA240FD3A30017C190 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C23BCC9240FD3A30017C190 /* Assets.xcassets */; };
 		4C23BCCD240FD3A30017C190 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C23BCCB240FD3A30017C190 /* LaunchScreen.storyboard */; };
 		4C23BCD8240FD3A40017C190 /* Assignment3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23BCD7240FD3A40017C190 /* Assignment3Tests.swift */; };
+		A56B97CA24EE878300AD193D /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56B97C924EE878300AD193D /* String+Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		4C23BCD3240FD3A40017C190 /* Assignment3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Assignment3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C23BCD7240FD3A40017C190 /* Assignment3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment3Tests.swift; sourceTree = "<group>"; };
 		4C23BCD9240FD3A40017C190 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A56B97C924EE878300AD193D /* String+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		4C23BCBF240FD3A20017C190 /* Assignment3 */ = {
 			isa = PBXGroup;
 			children = (
+				A56B97C924EE878300AD193D /* String+Helpers.swift */,
 				4C23BCC0240FD3A20017C190 /* AppDelegate.swift */,
 				4C23BCC2240FD3A20017C190 /* SceneDelegate.swift */,
 				4C23BCC4240FD3A20017C190 /* ViewController.swift */,
@@ -200,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A56B97CA24EE878300AD193D /* String+Helpers.swift in Sources */,
 				4C23BCC5240FD3A20017C190 /* ViewController.swift in Sources */,
 				4C23BCC1240FD3A20017C190 /* AppDelegate.swift in Sources */,
 				4C23BCC3240FD3A20017C190 /* SceneDelegate.swift in Sources */,
