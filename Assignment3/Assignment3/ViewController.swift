@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
- //    Задача 1. Создать строку с своим именем, вывести количество символов содержащихся в ней.
+    //    Задача 1. Создать строку с своим именем, вывести количество символов содержащихся в ней.
     
     func countStringCharacters(name: String) -> Int {
         return name.count
