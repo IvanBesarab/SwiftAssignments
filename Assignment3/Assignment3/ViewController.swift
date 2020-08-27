@@ -33,7 +33,15 @@ class ViewController: UIViewController {
     //    Задача 3. Cоздать строку, где слитно написано Ваши ИмяФамилия “IvanVasilevich"
     
     func divideCredentials(fullName: String) -> String {
-        fatalError()
+      var newStringArray: [String] = []
+      for character in fullName {
+          if String(character) == String(character).uppercased() {
+              newStringArray.append(" ")
+          }
+          newStringArray.append(String(character))
+      }
+      let finalResult = newStringArray.joined(separator: "").substring(from: 1)
+      return finalResult
     }
     
     //    Задача 4. Вывести строку зеркально Ось → ьсО не используя reverse
