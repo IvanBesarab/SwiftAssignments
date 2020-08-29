@@ -159,7 +159,13 @@ class ViewController: UIViewController {
     //    Задача 9. Сделать выборку из массива строк в которых содержится указанная строка
 
     func sortArray(input: [String], searchRequest: String) -> [String] {
-        fatalError()
+        var result : [String] = []
+        for search in input {
+            if search.contains(searchRequest) {
+                result.append(search)
+            }
+        }
+        return result
     }
 
     //    Задача 10. Убрать запрещенные слова из текста
