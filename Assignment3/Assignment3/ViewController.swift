@@ -171,7 +171,23 @@ class ViewController: UIViewController {
     //    Задача 10. Убрать запрещенные слова из текста
 
     func filterText(input: String, bannedWords: [String]) -> String {
-        fatalError()
+        let newText = input.replacingOccurrences(of: ",", with: " ,").replacingOccurrences(of: ".", with: " . ").replacingOccurrences(of: "\n", with: " \n ").components(separatedBy: " ")
+        var result : [String] = []
+        for word in newText {
+            if bannedWords.contains(word) {
+                var stars = ""
+                for star in 0..<(word.count) {
+                    stars.append("*")
+                }
+                result.append(stars)
+            }
+            else {
+                result.append(word)
+            }
+        }
+        print(result)
+        let finalResult = result.joined(separator: " ").replacingOccurrences(of: " ,", with: ",").replacingOccurrences(of: " . ", with: ".").replacingOccurrences(of: " \n ", with: "\n")
+        return finalResult
     }
 
 }
