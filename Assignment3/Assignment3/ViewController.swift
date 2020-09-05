@@ -175,8 +175,38 @@ class ViewController: UIViewController {
     //    Задача 8. Написать метод, который будет переводить строку в транслит.
     
     func translite(input: String) -> String {
-        fatalError()
+        let dictionary = ["я": "ya",
+                          "з": "z",
+                          "ь": "",
+                          "м": "m",
+                          "о": "o",
+                          "р": "r",
+                          "д": "d",
+                          "а": "a",
+                          "п": "p",
+                          "ч": "ch",
+                          "е": "e",
+                          "с": "s",
+                          "т": "t"]
+        var inputIndex = 0
+        var array = [String]()
+        var word = ""
+        for _ in 0..<input.count {
+            let index = input.index(input.startIndex, offsetBy: inputIndex)
+            var  inputLetter = String(input[index])
+            if inputLetter.lowercased() == inputLetter {
+                word += dictionary[inputLetter] ?? ""
+            } else if inputLetter.uppercased() == inputLetter {
+                inputLetter = inputLetter.lowercased()
+                let letter = dictionary[inputLetter] ?? ""
+                word += letter.uppercased()
+            }
+            inputIndex += 1
+        }
+        return word
     }
+
+    
     
     //    Задача 9. Сделать выборку из массива строк в которых содержится указанная строка
     
