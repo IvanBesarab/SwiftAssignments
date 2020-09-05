@@ -159,7 +159,17 @@ class ViewController: UIViewController {
     //    Задача 7. Сортировка массива не встроенным методом по возрастанию + удалить дубликаты
     
     func sortArrayAndRemoveDuplicates(input: [Int]) -> [Int] {
-        fatalError()
+        let firstSet = Set(input)
+        var firstArray = Array(firstSet)
+        var secondArray = [Int]()
+        while firstArray.min() != firstArray.max() {
+            secondArray.append(firstArray.min()!)
+            if let index = firstArray.firstIndex(of: firstArray.min()!) {
+                firstArray.remove(at: index) // удаление минимального значения из firstArray
+            }
+        }
+        secondArray.append(firstArray.max()!)
+        return secondArray
     }
     
     //    Задача 8. Написать метод, который будет переводить строку в транслит.
