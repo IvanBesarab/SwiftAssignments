@@ -100,58 +100,29 @@ class ViewController: UIViewController {
     //    Задача 6. Проверить пароль на надежность от 1 до 5
     
     func checkPassword(password: String) -> Int {
-        let arraySmallLetters = ["a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p"]
-        let arrayFigures = [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
-        let arrayBigLetters = ["A", "S", "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"]
-        let arraySigns = ["!", "@", "#", "$", "%", "&", "^", "*", "-", "_", "=", "+", "`", "~",]
-        var arrayPassword = [Character]()
+        var scoreLetter = 0
+        var scoreNumber = 0
+        var scorePunctuation = 0
+        var scoreUppercased = 0
         var indexNumber = 0
-        while indexNumber != password.count {
+        for _ in 0..<password.count {
             let index = password.index(password.startIndex, offsetBy: indexNumber)
-            arrayPassword += [password[index]]
+            let letter = password[index]
+            if letter.isLetter {
+                scoreLetter = 1
+            }
+            if letter.isNumber {
+                scoreNumber = 1
+            }
+            if letter.isPunctuation {
+                scorePunctuation = 2
+            }
+            if letter.isLetter && letter == Character(letter.uppercased()) {
+                scoreUppercased = 1
+            }
             indexNumber += 1
         }
-        var pointForSmallLetter = 0
-        var pointForFigures = 0
-        var pointForBigLetters = 0
-        var pointForSigns = 0
-        var indexArrayPassword = 0
-        while indexArrayPassword != arrayPassword.count {
-            if arraySmallLetters.contains(String(arrayPassword[indexArrayPassword])) {
-                pointForSmallLetter += 1
-            }
-            if arrayFigures.contains(String(arrayPassword[indexArrayPassword])) {
-                pointForFigures += 1
-            }
-            if arrayBigLetters.contains(String(arrayPassword[indexArrayPassword])) {
-                pointForBigLetters += 1
-            }
-            if arraySigns.contains(String(arrayPassword[indexArrayPassword])) {
-                pointForSigns += 1
-            }
-            indexArrayPassword += 1
-        }
-        if pointForSmallLetter > 0 {
-            pointForSmallLetter = 1
-        } else {
-            pointForSmallLetter = 0
-        }
-        if pointForFigures > 0 {
-            pointForFigures = 1
-        } else {
-            pointForFigures = 0
-        }
-        if pointForBigLetters > 0  {
-            pointForBigLetters = 1
-        } else {
-            pointForBigLetters = 0
-        }
-        if pointForSigns > 0 {
-            pointForSigns = 2
-        } else {
-            pointForSigns = 0
-        }
-        let sum = pointForSmallLetter + pointForFigures + pointForBigLetters + pointForSigns
+        let sum = scoreLetter + scoreNumber + scorePunctuation + scoreUppercased
         return  sum
     }
     
@@ -225,7 +196,20 @@ class ViewController: UIViewController {
     //    Задача 10. Убрать запрещенные слова из текста
     
     func filterText(input: String, bannedWords: [String]) -> String {
-        fatalError()
+        var mission = 0
+        var replaced = input
+        for _ in 0..<bannedWords.count {
+            var name = ""
+            for _ in 0..<bannedWords[mission].count {
+                name += "*"
+            }
+            replaced = replaced.replacingOccurrences(of: bannedWords[mission], with: name)
+            mission += 1
+        }
+        return replaced
     }
+    
+    
+ 
     
 }
