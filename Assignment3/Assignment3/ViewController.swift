@@ -176,7 +176,7 @@ class ViewController: UIViewController {
         }
         return word
     }
-
+    
     
     
     //    Задача 9. Сделать выборку из массива строк в которых содержится указанная строка
@@ -190,26 +190,33 @@ class ViewController: UIViewController {
             }
             nextWordIndex += 1
         }
-            return array
+        return array
     }
     
     //    Задача 10. Убрать запрещенные слова из текста
     
     func filterText(input: String, bannedWords: [String]) -> String {
-        var mission = 0
-        var replaced = input
-        for _ in 0..<bannedWords.count {
-            var name = ""
-            for _ in 0..<bannedWords[mission].count {
-                name += "*"
+        var array = input.replacingOccurrences(of: ",", with: " ,").replacingOccurrences(of: ".", with: " . ").replacingOccurrences(of: "\n", with: " \n ").components(separatedBy: " ")
+        var newName = ""
+        var indexArray = 0
+        for _ in 0..<array.count {
+            if bannedWords.contains(array[indexArray]) {
+                var newName = ""
+                for _ in 0..<array[indexArray].count {
+                    newName += "*"
+                }
+                array[indexArray] = newName
             }
-            replaced = replaced.replacingOccurrences(of: bannedWords[mission], with: name)
-            mission += 1
+            indexArray += 1
         }
-        return replaced
+        let string = array.joined(separator: " ").replacingOccurrences(of: " ,", with: ",").replacingOccurrences(of: " . ", with: ".").replacingOccurrences(of: " \n ", with: "\n")
+        return string
     }
     
-    
- 
-    
 }
+
+
+
+
+
+
