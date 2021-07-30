@@ -12,12 +12,8 @@ class ViewController: RootViewController {
 
     //    Задача 0. Вывести наибольшее из двух чисел
     func findGreatestNumber(numberA: Int, numberB: Int) {
-        if numberA > numberB {
-            print("Greatest number is \(numberA)")
-        }
-        else {
-            print("Greatest number is \(numberB)")
-        }
+        numberA > numberB ? print("Greatest number is \(numberA)") : print("Greatest number is \(numberB)")
+        
     }
 
     //    Задача 1. Вывести квадрат и куб введенного числа
