@@ -22,7 +22,7 @@ class ViewController: RootViewController {
 square of \(number) = \(a)
 qube of \(number) = \(a * number)
 """)
-
+    }
 
     //    Задача 2. Вывести все числа до заданного и в обратном порядке до 0
     func numbersUpToNAndBackToZero(with number: Int) {
@@ -53,13 +53,44 @@ qube of \(number) = \(a * number)
 
     //    Задача 4 Проверить, является ли заданное число совершенным
     func isNumberPerfect(_ number: Int) {
-        fatalError()
+        var divisorsCount = 0
+        for i in 1..<number {
+            if number % i == 0 {
+                divisorsCount += i
+            }
+        }
+        if number == divisorsCount {
+            print("number \(number) is perfect")
+        }
+        else {
+            print("number \(number) is NOT perfect")
+        }
     }
 
 	//    Задача 5 Развернуть число
 	func mirror(number: Int) {
-		fatalError()
-	}
+        var num = number
+        var lengthOfNumber = 1
+        var multiplier = 10
+        while multiplier < num {
+            lengthOfNumber += 1
+            multiplier *= 10
+        }
+        var reNumber = 0
+        var reNumberCounter = 0
+        while multiplier > num {
+            if num % 10 != 0 {
+                num -= 1
+                reNumberCounter += 1
+            } else {
+                num /= 10
+                multiplier /= 10
+                reNumber = reNumberCounter * multiplier + reNumber
+                reNumberCounter = 0
+            }
+        }
+        print ("Mirrored number is \(reNumber)")
+    }
 
 }
 
