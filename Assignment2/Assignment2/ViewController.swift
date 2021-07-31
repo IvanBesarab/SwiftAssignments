@@ -12,23 +12,43 @@ class ViewController: RootViewController {
 
     //    Задача 0. Вывести наибольшее из двух чисел
     func findGreatestNumber(numberA: Int, numberB: Int) {
-        numberA > numberB ? print("Greatest number is \(numberA)") : print("Greatest number is \(numberB)")
-        
+        print("Greatest number is \(numberA > numberB ? numberA : numberB)")
     }
 
     //    Задача 1. Вывести квадрат и куб введенного числа
     func findSquareAndQubeOf(number: Int) {
-        fatalError()
-    }
+        let a = number * number
+        print("""
+square of \(number) = \(a)
+qube of \(number) = \(a * number)
+""")
+
 
     //    Задача 2. Вывести все числа до заданного и в обратном порядке до 0
     func numbersUpToNAndBackToZero(with number: Int) {
-        fatalError()
+        var counter = 1
+        for i in 0...number + number {
+            if i > number {
+                counter += 1
+                print(i - counter)
+                counter += 1
+            }
+            else {
+                print(i)
+            }
+        }
     }
 
     //    Задача 3. Подсчитать общее число делителей числа и вывести их
     func findDivisors(of number: Int) {
-        fatalError()
+        var divisorsCount = 0
+        for i in 1..<number {
+            if number % i == 0 {
+                print(i)
+                divisorsCount += 1
+            }
+        }
+        print("number \(number) has \(divisorsCount) divisors")
     }
 
     //    Задача 4 Проверить, является ли заданное число совершенным
