@@ -20,14 +20,7 @@ class ViewController: UIViewController {
     //    Задача 2. Создать строку с своим отчеством проверить его на окончание “ич/на”
 
     func checkPatronomic(name: String) -> Bool {
-        var patronomicHasEndIchOrNa: Bool
-        if name.hasSuffix("ich") || name.hasSuffix("na") {
-           patronomicHasEndIchOrNa = true
-        }
-        else {
-            patronomicHasEndIchOrNa = false
-        }
-        return patronomicHasEndIchOrNa
+        return name.hasSuffix("ich") || name.hasSuffix("na")
     }
 
     //    Задача 3. Cоздать строку, где слитно написано Ваши ИмяФамилия “IvanVasilevich"
@@ -154,6 +147,7 @@ class ViewController: UIViewController {
             counerOfSecurity += 1
         }
         return counerOfSecurity
+     //   "abw".contains(<#T##element: Character##Character#>)
         
     }
 
@@ -162,9 +156,7 @@ class ViewController: UIViewController {
     func sortArrayAndRemoveDuplicates(input: [Int]) -> [Int] {
         
         var sortedNumbers: [Int] = [input[0]]
-        let end = input.count - 1
-        
-        for i in input[1...end] {
+        for i in input[1..<input.count] {
             
             if i == sortedNumbers[0] {
                 continue
@@ -191,18 +183,18 @@ class ViewController: UIViewController {
         return sortedNumbers
     }
 
-    //    Задача 8. Написать метод, который будет переводить строку в транслит.
+    //    Задача 8. Написать метод, который будет переводить строку в транслит. //переделать
 
     func translite(input: String) -> String {
         func convertStrToTranslite(str: String) -> String {
-            let abc = ["а": "a", "д": "d", "м": "m", "о": "o", "р": "r", "с": "s", "е": "e",
+            let russianToEnglishLowercase = ["а": "a", "д": "d", "м": "m", "о": "o", "р": "r", "с": "s", "е": "e",
                        "т": "t", "п": "p", "ч": "ch", "я": "ya", "з": "z", "ь": ""]
             let aBC = ["А": "A", "Д": "D", "М": "M", "О": "O", "Р": "R", "С": "S", "Е": "E",
                        "Т": "T", "П": "P", "Ч": "CH", "Я": "YA", "З": "Z", "Ь": ""]
             var convertedStr = ""
             for i in str {
                 if i.isLowercase {
-                    for (kay, value) in abc {
+                    for (kay, value) in russianToEnglishLowercase {
                         if i == Character(kay) {
                             convertedStr += value
                             break
@@ -211,10 +203,8 @@ class ViewController: UIViewController {
                         }
                     }
                 } else if i.isUppercase {
-                    //          i.lowercased()
                     for (kay, value) in aBC {
                         if i == Character(kay) {
-                            //                  value.uppercased()
                             convertedStr += value
                             break
                         } else {
@@ -226,8 +216,7 @@ class ViewController: UIViewController {
             return convertedStr
         }
         
-        let string = convertStrToTranslite(str: input)
-        return string
+        return convertStrToTranslite(str: input)
     }
 
     //    Задача 9. Сделать выборку из массива строк в которых содержится указанная строка
