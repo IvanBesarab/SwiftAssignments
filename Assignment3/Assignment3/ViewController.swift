@@ -192,50 +192,40 @@ class ViewController: UIViewController {
     //    Задача 10. Убрать запрещенные слова из текста
     
     func filterText(input: String, bannedWords: [String]) -> String {
-        //   let input = "My pick i s great, my pick is very great"
-        //    let bannedWords = ["pick", "great", "i"]
         let preffixSuffix = [".", ",", "-", "!", ":", ";", "?"]
-        var splitInput = input.split(separator: " ", omittingEmptySubsequences: false)
-        var counter = -1
-        for i in splitInput {
-            counter += 1
-            let preffix = removePriffix(word: String(i), matrix: preffixSuffix)
-            let suffix = removeSuffix(word: String(i), matrix: preffixSuffix)
-            var clearWord = checkPreffixSuffix(word: String(i), matrix: preffixSuffix)
-            for mat in bannedWords{
-                if clearWord.contains("\n") {
-                    var s = clearWord.split(separator: "\n", omittingEmptySubsequences: false) //seckond level
-                    var sCounter = 0
-                    for j in s {
-                        let sPreffix = removePriffix(word: String(j), matrix: preffixSuffix)
-                        let sSuffix = removeSuffix(word: String(j), matrix: preffixSuffix)
-                        var sClearWord = checkPreffixSuffix(word: String(j), matrix: preffixSuffix)
-                        if sClearWord == mat {
-                            sClearWord = starOnMat(mat: String(sClearWord))
-                            sClearWord  = sPreffix + sClearWord + sSuffix
-                            s[sCounter] = Substring(sClearWord)
-                            sCounter += 1
-                        }
-                        else {
-                            sCounter += 1
-                            continue
+        let splitSeparator: Character = " "
+        let splitSeparatorForNewLine: Character = "\n"
+        var spaceSplitInput = input.split(separator: splitSeparator, omittingEmptySubsequences: false)
+        for position in 0..<spaceSplitInput.count {
+            let checkWord = spaceSplitInput[position]
+            let preffixCheckWord = removePriffix(word: String(checkWord), matrix: preffixSuffix)
+            let suffixCheckWord = removeSuffix(word: String(checkWord), matrix: preffixSuffix)
+            var cleanCheckWord = checkPreffixSuffix(word: String(checkWord), matrix: preffixSuffix)
+            for mat in bannedWords {
+                if cleanCheckWord.contains(splitSeparatorForNewLine) {
+                    var wordsWithoutNewline = cleanCheckWord.split(separator: splitSeparatorForNewLine, omittingEmptySubsequences: false)
+                    for counter in 0..<wordsWithoutNewline.count {
+                        let word = wordsWithoutNewline[counter]
+                        let preffixWord = removePriffix(word: String(word), matrix: preffixSuffix)
+                        let suffixWord = removeSuffix(word: String(word), matrix: preffixSuffix)
+                        var cleanWord = checkPreffixSuffix(word: String(word), matrix: preffixSuffix)
+                        if cleanWord == mat {
+                            cleanWord = starOnMat(mat: String(cleanWord))
+                            cleanWord  = preffixWord + cleanWord + suffixWord
+                            wordsWithoutNewline[counter] = Substring(cleanWord)
                         }
                     }
-                    clearWord = s.joined(separator: "\n")
+                    cleanCheckWord = wordsWithoutNewline.joined(separator: String(splitSeparatorForNewLine))
                 }
-                else if clearWord == mat {
-                    clearWord = starOnMat(mat: clearWord)
-                }
-                else {
-                    continue
+                else if cleanCheckWord == mat {
+                    cleanCheckWord = starOnMat(mat: cleanCheckWord)
                 }
             }
-            clearWord = preffix + clearWord + suffix
-            splitInput[counter] = Substring(clearWord)
+            cleanCheckWord = preffixCheckWord + cleanCheckWord + suffixCheckWord
+            spaceSplitInput[position] = Substring(cleanCheckWord)
         }
-        return splitInput.joined(separator: " ")
+        return spaceSplitInput.joined(separator: String(splitSeparator))
     }
-    
 }
 
 func removePriffix(word: String, matrix:[String]) -> String {
