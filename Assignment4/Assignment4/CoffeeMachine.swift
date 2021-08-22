@@ -10,108 +10,80 @@ import Foundation
 
 class CoffeeMachine {
     
-    var coffeeBeans: Int = 0
-    var water: Int = 0
-    var milk: Int = 0
-    let beansEspresso: Int = 10
-    let waterEspresso: Int = 30
-    let beansAmericano: Int = 10
-    let waterAmericano: Int = 500
-    let beansСappuccino: Int = 10
-    let waterСappuccino: Int = 60
-    let milkСappuccino: Int = 60
+    var inCoffeeMachine = ["water": 0, "beans": 0, "milk": 0]
+    let espressoFormula = ["water": 30, "beans": 10]
+    let americanoFormula = ["water": 500, "beans": 10]
+    let cappuccinoFormula = ["water": 60, "beans": 10, "milk": 60]
     
     func makeAmericano() -> String {
-        if checkWater(waterAmericano) {
-            if checkCoffee(beansAmericano) {
-                return americano()
-            }
+        for (ingredient, value) in americanoFormula {
+            if checkIngredient(inCoffeeMachine[ingredient]!, value) {}
             else {
-                return "not enough beans"
+                return "not enough \(ingredient)"
             }
         }
-        else {
-            return "not enough water"
-        }
+        return americano()
     }
-    
     func makeCapuccino() -> String {
-        if checkWater(waterСappuccino) {
-            if checkCoffee(beansСappuccino) {
-                if checkMilk(milkСappuccino) {
-                    return cappuccino()
-                }
-                else {
-                    return "not enough milk"
-                }
-            }
+        for (ingredient, value) in cappuccinoFormula {
+            if checkIngredient(inCoffeeMachine[ingredient]!, value) {}
             else {
-                return "not enough beans"
+                return "not enough \(ingredient)"
             }
         }
-        else {
-            return "not enough water"
-        }
+        return cappuccino()
     }
     
-    private func checkCoffee(_ beansForCup: Int) -> Bool {
-        if coffeeBeans >= beansForCup {
+    func makeEspresso() -> String {
+        for (ingredient, value) in espressoFormula {
+            if checkIngredient(inCoffeeMachine[ingredient]!, value) {}
+            else {
+                return "not enough \(ingredient)"
+            }
+        }
+        return cappuccino()
+    }
+    
+    private func checkIngredient(_ inMachine: Int, _ needForCup: Int) -> Bool {
+        if inMachine >= needForCup {
             return true
         }
         else {
             return false
         }
-    }
-    
-    private func checkWater(_ waterForCup: Int) -> Bool {
-        if water >= waterForCup {
-            return true
-        }
-        else {
-            return false
-        }
-    }
-    
-    private func checkMilk(_ milkForCup: Int) -> Bool {
-        if milk >= milkForCup {
-            return true
-        }
-        else {
-            return false
-        }
-    }
-    
-    func addBeans() -> String  {
-        coffeeBeans += 100
-        return "beans in tank \(coffeeBeans)"
     }
     
     func addWater() -> String {
-        water += 1000
-        return "water in tank \(water)"
+        inCoffeeMachine["water"]! += 1000
+        return "water in tank \(inCoffeeMachine["water"]!)"
+    }
+    
+    func addBeans() -> String  {
+        inCoffeeMachine["beans"]! += 100
+        return "beans in tank \(inCoffeeMachine["beans"]!)"
     }
     
     func addMilk() -> String  {
-        milk += 200
-        return "milk in tank \(milk)"
+        inCoffeeMachine["milk"]! += 200
+        return "milk in tank \(inCoffeeMachine["milk"]!)"
     }
     
     private func americano() -> String {
-        coffeeBeans -= beansAmericano
-        water -= waterAmericano
+        inCoffeeMachine["beans"]! -= americanoFormula["beans"]!
+        inCoffeeMachine["water"]! -= americanoFormula["water"]!
         return "your americano sir"
     }
     
     private func espresso() -> String {
-        coffeeBeans -= beansEspresso
-        water -= waterEspresso
+        inCoffeeMachine["beans"]! -= espressoFormula["beans"]!
+        inCoffeeMachine["water"]! -= espressoFormula["water"]!
         return "your espresso sir"
     }
     
     private func cappuccino() -> String {
-        coffeeBeans -= beansСappuccino
-        water -= waterСappuccino
-        milk -= milkСappuccino
+        inCoffeeMachine["beans"]! -= cappuccinoFormula["beans"]!
+        inCoffeeMachine["water"]! -= cappuccinoFormula["water"]!
+        inCoffeeMachine["milk"]! -= cappuccinoFormula["milk"]!
         return "your cappuccino sir"
     }
 }
