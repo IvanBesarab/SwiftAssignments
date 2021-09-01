@@ -10,38 +10,44 @@ import Foundation
 
 class CoffeeMachine {
     
-    var inCoffeeMachine = ["water": 0, "beans": 0, "milk": 0]
-    let espressoFormula = ["water": 30, "beans": 10]
-    let americanoFormula = ["water": 500, "beans": 10]
-    let cappuccinoFormula = ["water": 60, "beans": 10, "milk": 60]
+    private let priority = ["water", "beans", "milk"]
+    private let drinks = ["americano", "cappuccino"]
+    private var inCoffeeMachine = ["water": 0, "beans": 0, "milk": 0]
+    private let espressoFormula = ["water": 30, "beans": 10]
+    private let americanoFormula = ["water": 500, "beans": 10]
+    private let cappuccinoFormula = ["water": 60, "beans": 10, "milk": 60]
     
     func makeAmericano() -> String {
-        for (ingredient, value) in americanoFormula {
-            if checkIngredient(inCoffeeMachine[ingredient]!, value) {}
-            else {
-                return "not enough \(ingredient)"
-            }
+        let result = iterateInMachine(americanoFormula)
+        if result.count == 0 {
+            return doDrink(americanoFormula, drinks[0])
         }
-        return americano()
-    }
-    func makeCapuccino() -> String {
-        for (ingredient, value) in cappuccinoFormula {
-            if checkIngredient(inCoffeeMachine[ingredient]!, value) {}
-            else {
-                return "not enough \(ingredient)"
-            }
-        }
-        return cappuccino()
+        return result
     }
     
-    func makeEspresso() -> String {
-        for (ingredient, value) in espressoFormula {
-            if checkIngredient(inCoffeeMachine[ingredient]!, value) {}
+    func makeCapuccino() -> String {
+        let result = iterateInMachine(cappuccinoFormula)
+        if result.count == 0 {
+            return doDrink(cappuccinoFormula, drinks[1])
+        }
+        return result
+    }
+    
+    private func iterateInMachine(_ formula: Dictionary<String,Int>) -> String {
+        for position in 0..<formula.count {
+            if checkIngredient(inCoffeeMachine[(priority[position])]!, formula[(priority[position])]!) {}
             else {
-                return "not enough \(ingredient)"
+                return "not enough \(priority[position])"
             }
         }
-        return cappuccino()
+        return ""
+    }
+    
+    private func doDrink(_ formula: Dictionary<String,Int>, _ drinkName: String) -> String {
+        for position in 0..<formula.count {
+            inCoffeeMachine[(priority[position])]! -= formula[(priority[position])]!
+        }
+        return "your \(drinkName) sir"
     }
     
     private func checkIngredient(_ inMachine: Int, _ needForCup: Int) -> Bool {
@@ -68,22 +74,4 @@ class CoffeeMachine {
         return "milk in tank \(inCoffeeMachine["milk"]!)"
     }
     
-    private func americano() -> String {
-        inCoffeeMachine["beans"]! -= americanoFormula["beans"]!
-        inCoffeeMachine["water"]! -= americanoFormula["water"]!
-        return "your americano sir"
-    }
-    
-    private func espresso() -> String {
-        inCoffeeMachine["beans"]! -= espressoFormula["beans"]!
-        inCoffeeMachine["water"]! -= espressoFormula["water"]!
-        return "your espresso sir"
-    }
-    
-    private func cappuccino() -> String {
-        inCoffeeMachine["beans"]! -= cappuccinoFormula["beans"]!
-        inCoffeeMachine["water"]! -= cappuccinoFormula["water"]!
-        inCoffeeMachine["milk"]! -= cappuccinoFormula["milk"]!
-        return "your cappuccino sir"
-    }
 }
