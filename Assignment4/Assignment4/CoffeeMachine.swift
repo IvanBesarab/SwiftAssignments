@@ -9,28 +9,21 @@
 import Foundation
 
 class CoffeeMachine {
-    
+    private struct Constants {
+        static let formulaAmericano = ["water": 500, "beans": 10]
+        static let formulaCappuccino = ["water": 60, "beans": 10, "milk": 60]
+    }
     private let priority = ["water", "beans", "milk"]
     private let drinks = ["americano", "cappuccino"]
     private var inCoffeeMachine = ["water": 0, "beans": 0, "milk": 0]
-    private let espressoFormula = ["water": 30, "beans": 10]
-    private let americanoFormula = ["water": 500, "beans": 10]
-    private let cappuccinoFormula = ["water": 60, "beans": 10, "milk": 60]
+    private let drinksFormula = [Constants.formulaAmericano, Constants.formulaCappuccino]
     
     func makeAmericano() -> String {
-        let result = iterateInMachine(americanoFormula)
-        if result.count == 0 {
-            return doDrink(americanoFormula, drinks[0])
-        }
-        return result
+        return doDrink(Constants.formulaAmericano)
     }
     
     func makeCapuccino() -> String {
-        let result = iterateInMachine(cappuccinoFormula)
-        if result.count == 0 {
-            return doDrink(cappuccinoFormula, drinks[1])
-        }
-        return result
+        return doDrink(Constants.formulaCappuccino)
     }
     
     private func iterateInMachine(_ formula: Dictionary<String,Int>) -> String {
@@ -40,14 +33,18 @@ class CoffeeMachine {
                 return "not enough \(priority[position])"
             }
         }
-        return ""
+        return "isOK"
     }
     
-    private func doDrink(_ formula: Dictionary<String,Int>, _ drinkName: String) -> String {
-        for position in 0..<formula.count {
-            inCoffeeMachine[(priority[position])]! -= formula[(priority[position])]!
+    private func doDrink(_ formula: Dictionary<String,Int>) -> String {
+        let test = iterateInMachine(formula)
+        if test == "isOK" {
+            for position in 0..<formula.count {
+                inCoffeeMachine[(priority[position])]! -= formula[(priority[position])]!
+            }
+            return "your \(drinks[(drinksFormula.firstIndex(of: formula)!)]) sir"
         }
-        return "your \(drinkName) sir"
+        return test
     }
     
     private func checkIngredient(_ inMachine: Int, _ needForCup: Int) -> Bool {

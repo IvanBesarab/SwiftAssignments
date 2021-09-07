@@ -2,7 +2,7 @@
 //  SecondViewController.swift
 //  Assignment4
 //
-//  Created by Ivan Pavlenko on 31.08.2021.
+//  Created by Ivan Pavlenko on 03.09.2021.
 //  Copyright © 2021 Ivan Besarab. All rights reserved.
 //
 
@@ -33,3 +33,4 @@ class SecondViewController: UIViewController {
     }
     
 }
+

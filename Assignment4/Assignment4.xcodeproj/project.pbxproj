@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4FC6C38E26E28E630016722A /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC6C38D26E28E630016722A /* SecondViewController.swift */; };
+		4FC6C39026E682E40016722A /* UIView+RoundedBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC6C38F26E682E40016722A /* UIView+RoundedBorder.swift */; };
+		4FF2A97226E14A430075260D /* CoffeeMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF2A97126E14A430075260D /* CoffeeMachine.swift */; };
 		A557161924FF6966008B45A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A557161824FF6966008B45A6 /* AppDelegate.swift */; };
 		A557161B24FF6966008B45A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A557161A24FF6966008B45A6 /* SceneDelegate.swift */; };
 		A557161D24FF6966008B45A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A557161C24FF6966008B45A6 /* ViewController.swift */; };
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4FC6C38D26E28E630016722A /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		4FC6C38F26E682E40016722A /* UIView+RoundedBorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+RoundedBorder.swift"; sourceTree = "<group>"; };
+		4FF2A97126E14A430075260D /* CoffeeMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeMachine.swift; sourceTree = "<group>"; };
 		A557161524FF6966008B45A6 /* Assignment4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A557161824FF6966008B45A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A557161A24FF6966008B45A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,9 +105,12 @@
 		A557161724FF6966008B45A6 /* Assignment4 */ = {
 			isa = PBXGroup;
 			children = (
+				4FC6C38F26E682E40016722A /* UIView+RoundedBorder.swift */,
 				A557161824FF6966008B45A6 /* AppDelegate.swift */,
 				A557161A24FF6966008B45A6 /* SceneDelegate.swift */,
 				A557161C24FF6966008B45A6 /* ViewController.swift */,
+				4FF2A97126E14A430075260D /* CoffeeMachine.swift */,
+				4FC6C38D26E28E630016722A /* SecondViewController.swift */,
 				A557161E24FF6966008B45A6 /* Main.storyboard */,
 				A557162124FF6967008B45A6 /* Assets.xcassets */,
 				A557162324FF6967008B45A6 /* LaunchScreen.storyboard */,
@@ -259,9 +268,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FC6C38E26E28E630016722A /* SecondViewController.swift in Sources */,
 				A557161D24FF6966008B45A6 /* ViewController.swift in Sources */,
 				A557161924FF6966008B45A6 /* AppDelegate.swift in Sources */,
 				A557161B24FF6966008B45A6 /* SceneDelegate.swift in Sources */,
+				4FC6C39026E682E40016722A /* UIView+RoundedBorder.swift in Sources */,
+				4FF2A97226E14A430075260D /* CoffeeMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,8 +19,6 @@ class ViewController: UIViewController {
       
     @IBOutlet weak var consoleLabel: UILabel!
     
-    @IBOutlet weak var boardAmericano: UIButton!
-    
     @IBAction func buttonAmericano() {
         consoleLabel.text = coffeeMachine13.makeAmericano()
     }
